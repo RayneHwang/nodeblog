@@ -16,9 +16,12 @@ $ npm start
 ```
 
 **Make Sure**
+
 1. Node.js/MongoDB already installed
+
 2. Modify the `config.js.default` to setup the environment and rename it to `config.js`
 
 
 **License**
+
 MIT

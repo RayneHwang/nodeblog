@@ -132,10 +132,14 @@ function getTags(req, res, next) {
 	});
 }
 
-
+/**
+ * Add a topic
+ * @param req
+ * @param res
+ * @param next
+ */
 function add(req, res, next) {
 	var _id = req.query._id;
-
 	var checkEvent = new eventproxy();
 	checkEvent.all('checkTopic', 'checkTag', function (topicTags, hasTags) {
 		var resData = {
@@ -239,20 +243,17 @@ function show(req, res, next) {
 						} else {
 							ep.emit("getTags");
 						}
-
 					})
 				});
 			})
-
-
 		} else {
 			var url = config.url.host;
 			res.redirect(url);
 		}
-
 	})
 }
 
+//list all topics
 function home(req, res, next) {
 	var query = {};
 	var fields = {};
@@ -266,8 +267,6 @@ function home(req, res, next) {
 		query.tagsId = mongoose.Types.ObjectId(tagId);
 		pageUrl += +pageUrl + "&tagId=" + tagId;
 	}
-
-
 	var pageNum = req.query.pageNum;
 	if (!validator.isNull(pageNum) && pageNum > 1) {
 		var prevNum = parseInt(pageNum) - 1;
@@ -275,8 +274,6 @@ function home(req, res, next) {
 	} else {
 		pageNum = 1;
 	}
-
-
 	Topic.getByPage(query, fields, skip, limit, sort, function (error, topics) {
 		if (error) {
 			return next(error);
@@ -297,21 +294,16 @@ function home(req, res, next) {
 				return next(error);
 			}
 			var resData = {
-				title: 'Home Page',
-				topics: topics,
-				pageInfo: pageInfo,
-				tags: tags,
-				tagId: tagId
+				'title': 'Home Page',
+				'topics': topics,
+				'pageInfo': pageInfo,
+				'tags': tags,
+				'tagId': tagId
 			};
 			res.render('topic/home', resData);
 		})
-
-
 	});
-
-
 }
-
 
 function create(req, res, next) {
 	var _id = req.body._id;

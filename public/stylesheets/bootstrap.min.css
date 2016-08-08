@@ -4411,12 +4411,12 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .navbar-inverse .navbar-brand {
-    color: #999
+    color: #999;
 }
 
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
     color: #fff;
-    background-color: transparent
+    background-color: transparent;
 }
 
 .navbar-inverse .navbar-text {

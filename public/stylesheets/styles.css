@@ -62,3 +62,29 @@
     height: 8%;
     display: block;
 }
+
+.topicName {
+    color: #555555;
+    padding: 10px 10px 0 10px;
+}
+
+.btn-add-topic {
+    background-color: #515151;
+    color: #ffffff;
+}
+
+/*The website name*/
+.webName:hover{
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    color: #515151;
+}
+.webName{
+    color: #dddddd;
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px
+}
