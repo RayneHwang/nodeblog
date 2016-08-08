@@ -4,7 +4,7 @@ html
 		meta(http-equiv="content-type" content="text/html; charset=UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
 		if csrfToken
-			meta(name="csrfToken" content="#{csrfToken}")
+			meta(name="csrfToken" content=csrfToken)
 
 		title= title
 		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
@@ -30,16 +30,13 @@ html
 				include sidebar-tag
 
 	script(src='/javascripts/jquery.min.js')
-
 	script(src='/javascripts/ajax-upload.js')
-
 	script(src='/javascripts/marked.js')
 	script(src='/javascripts/editor.js')
-
 	script(src='/javascripts/jquery-ui.min.js')
 	script(src='/javascripts/tag-it.js')
-
 	script(src='/javascripts/bootstrap.min.js')
 	script(src='/javascripts/common.js')
+	script(src='/javascripts/homepage.js')
 
 

@@ -164,6 +164,7 @@ function login(req, res, next) {
 	var userEmail = validator.trim(req.body.userEmail);
 	var passWord = validator.trim(req.body.passWord);
 	var ep = new eventproxy();
+
 	ep.fail(next);
 	ep.once('login_error', function (name, notice) {
 		helps.resJsonError(req, res, name, notice);
@@ -202,13 +203,10 @@ function login(req, res, next) {
 				}
 
 			});
-
 		} else {
 			ep.emit("login_error", "userEmail", "Email is not exists");
 		}
-
 		return;
-
 	});
 
 }

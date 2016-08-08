@@ -19,7 +19,7 @@ function requiredLogin(req, res, next) {
 	if (req.session && req.session.user) {
 		return next();
 	} else {
-		var url = config.url.host+'/users/login';
+		var url = config.url.host+'/users/login?type=redirect';
 		if (req.xhr) {
 			helps.jsonRedirect(res, url);
 		} else {
