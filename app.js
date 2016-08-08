@@ -20,15 +20,15 @@ var upload = require('./routes/upload');
 
 
 var app = express();
-app.set('env','production');
+app.set('env', 'production');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //var faviconPath=path.join(__dirname, 'public', 'favicon.ico');
 //console.log(faviconPath);
-app.use('favicon',express.static('public/favicon.ico'));
+app.use('favicon', express.static('public/favicon.ico'));
 
 app.use(favicon('public/favicon.ico'));
 app.use(logger('dev'));
