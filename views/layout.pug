@@ -4,7 +4,7 @@ html
 		meta(http-equiv="content-type" content="text/html; charset=UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
 		if csrfToken
-			meta(name="csrfToken" content="#{csrfToken}")
+			meta(name="csrfToken" content=csrfToken)
 
 		title= title
 		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
@@ -14,7 +14,6 @@ html
 		link(href='favicon.ico',mce_href='favicon.ico',rel='shortcut icon',type="image/x-icon" )
 		link(rel='stylesheet', href='/stylesheets/jquery-ui.css')
 		link(rel='stylesheet', href='/stylesheets/jquery.tagit.css')
-
 		link(rel='stylesheet', href='/stylesheets/editor.css')
 		link(rel='stylesheet', href='/stylesheets/editor-self.css')
 		link(rel='icon', type='image/png',sizes='32x32',href='/favicon.ico')
@@ -30,16 +29,13 @@ html
 				include sidebar-tag
 
 	script(src='/javascripts/jquery.min.js')
-
 	script(src='/javascripts/ajax-upload.js')
-
 	script(src='/javascripts/marked.js')
 	script(src='/javascripts/editor.js')
-
 	script(src='/javascripts/jquery-ui.min.js')
 	script(src='/javascripts/tag-it.js')
-
 	script(src='/javascripts/bootstrap.min.js')
 	script(src='/javascripts/common.js')
+	script(src='/javascripts/homepage.js')
 
 

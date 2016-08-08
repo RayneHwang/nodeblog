@@ -3,11 +3,12 @@ div.list-group.post-list-group
 		each topic in topics
 			div.pull-right.last-comment-at
 				div.meta
-					a(href="/topic/show/?_id=#{topic._id}")
+					a(href="/topic/show/?_id=" + topic._id)
 						span.timeago #{topic.update_at_ago()}
 			include topic
+			div(style="text-align:center")
+				a(href="/topic/add").btn.btn-add-topic Add Topic
 	else
 		div.text-center
 			p(style="text-align:center;font-family:consolas;color:#777676;") There is the no more topic.
-			p
-				a(href="/topic/add").btn.btn-sm.btn-primary Add Topic
+			a(href="/topic/add").btn.btn-md.btn-add-topic#addTopicBtn Add Topic

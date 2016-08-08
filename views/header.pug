@@ -1,22 +1,22 @@
-nav.navbar.navbar-white
-	div.header-container
+nav.navbar.navbar-inverse
+	div.container-fluid
 		div.navbar-header
 			button(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse").navbar-toggle
 				span.nav-menu-name Menu
-			a(href="/" style=";").navbar-brand #{webName}
+			a(href="/" style=";").webName #{webName}
 		div.collapse.navbar-collapse.navbar-ex1-collapse
 			ul.nav.navbar-nav.navbar-right
 				li
-					a(href="/").unified-font.header-button Home
+					a(href="/").navbar-brand 主页
 				if session && session.user
-					li
-						a(href="/users/home?userName=" + session.user.userName) #{session.user.userName}
-					li
-						a(href="/users/setting") Setting
-					li
-						a(href="/users/logout") Logout
+					li(style="display:inline;")
+						a(href="/users/home?userName=" + session.user.userName).navbar-brand #{session.user.userName}
+					li(style="display:inline;")
+						a(href="/users/setting" style="display:inline;").navbar-brand 设置
+					li(style="display:inline;")
+						a(href="/users/logout" style="display:inline;").navbar-brand 注销
 				else
-					li
-						a(href="/users/login") Login
-					li
-						a(href="/users/register") Register
+					li(style="display:inline;")
+						a(href="/users/login").navbar-brand 登录
+					li(style="display:inline;")
+						a(href="/users/register").navbar-brand 注册
