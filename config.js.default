@@ -1,0 +1,50 @@
+var path = require('path');
+var appRoot = path.resolve(__dirname);
+var config = {
+	web:{
+		name:"Lei, HUANG",
+		appRoot:appRoot
+	},
+	url:{
+		//host:"http://10.118.27.156:3000"
+		host:"http://<host>:<port>"
+	},
+	upload:{
+		uploadPath:"",
+		imageFloder:"/upload/images/",
+		defaultAvatar:"/images/default-avatar.png"
+	},
+	auth:{
+		activeKey : "activeKey",
+		checkActive: false
+	},
+	database :{
+		address : "mongodb://<username>:<passwd>@<host>/myExpressApp"
+	},
+	session :{
+		cookie : {
+			secret: 'sessionSecret',
+    		name: 'sessionName',
+    		maxAge: 1000 * 60 * 60 * 24 * 30
+		},
+		database:{
+        		address: 'mongodb://<username>:<passwd>@<host>/myExpressAppSession'
+		}
+
+
+	},
+	email:{
+	    host: 'smtp.qq.com',
+		port: 25,
+		user: '',
+		pass:'  ',
+		from: ''
+	},
+	topic:{
+		page:{
+			limit:10
+		}
+	}
+};
+
+module.exports = config;
