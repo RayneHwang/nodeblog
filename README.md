@@ -1,20 +1,24 @@
-# NodeJS-forum
+# NodeJS-Blog
+A simple blog-like CMS based on Node.js/pug/MongoDB/Bootstrap.
 
-**功能简介**
+**Features**
 
-* 用户注册，发送激活邮件，用户登录，上传头像
-* 发起话题，创建话题标签，用户评论话题
-* Markdown编辑器，在线预览，支持图片
+* User registry/Acount activation/Upload 
+* Create topics/tags/comments 
+* Support Markdown editor
 
-**安装方法**
+**Install**
 
 ```bash
 $ git clone https://github.com/RayneHwang/nodeblog.git
 $ npm install
-$ DEBUG=myExpressApp:* npm start
+$ npm start
 ```
-注意事项：
 
-1. 请确保安装了NodeJS，npm，MongoDB
-2. 请根据环境修改根目录的config.js配置文件
+**Make Sure**
+1. Node.js/MongoDB already installed
+2. Modify the `config.js.default` to setup the environment and rename it to `config.js`
 
+
+**License**
+MIT

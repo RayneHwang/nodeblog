@@ -20,25 +20,21 @@ var upload = require('./routes/upload');
 
 
 var app = express();
-app.set('env', 'production');
+//app.set('env', 'production');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-//var faviconPath=path.join(__dirname, 'public', 'favicon.ico');
-//console.log(faviconPath);
 app.use('favicon', express.static('public/favicon.ico'));
-
 app.use(favicon('public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static('public'));
-app.use(express.static('public'));
 
-app.use('/upload', express.static(path.join(__dirname, 'upload')));
+app.use('/upload', express.static('/upload'));
 global.appRoot = path.resolve(__dirname);
 
 const session = require('express-session');
@@ -65,7 +61,7 @@ app.use(function (err, req, res, next) {
 	helps.resJsonError(req, res, name, notice);
 })
 
-
+//config the web page info
 app.use(function (req, res, next) {
 	res.locals.session = req.session;
 	res.locals.webName = config.web.name;
