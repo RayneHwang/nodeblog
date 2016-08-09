@@ -8,12 +8,10 @@ div.panel.panel-default
 						img(src=session.user.userAvatar)
 					span.user-name
 						a(href="/users/home?userName=" + session.user.userName) #{session.user.userName}
-			div.add-topic-btn
+			//div.add-topic-btn
 				a(href="/topic/add").btn.btn-primary Add Topic
 	else
-		div.panel-body
-			div.inner
-				img(src="/images/lei.jpg" style="display:block; margin:0 auto;width:70%;")
+		img(src="/images/lei.jpg" style="display:block; margin:0 auto;width:70%;padding:10% 0 0 0;")
 		div.panel-body
 			div.inner
 				p(style="text-align:center;font-family:consolas;color:#777676;") Welcome to Lei's blog.
