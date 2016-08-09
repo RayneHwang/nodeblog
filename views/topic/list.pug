@@ -6,7 +6,7 @@ div.list-group.post-list-group
 					a(href="/topic/show/?_id=" + topic._id)
 						span.timeago #{topic.update_at_ago()}
 			include topic
-			div(style="text-align:center")
+			div(style="text-align:center;")
 				a(href="/topic/add").btn.btn-add-topic#addTopicBtn Add Topic
 	else
 		div.text-center

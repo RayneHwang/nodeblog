@@ -3,6 +3,7 @@ if (window.location.pathname == '/') {
 		var flag=0;
 		var posted=0;
 		$('#addTopicBtn').click(function () {
+			var flag = 0;
 			$.ajax({
 				'type': 'GET',
 				//TODO Debugin on Chrome requires the IP of host
@@ -10,6 +11,7 @@ if (window.location.pathname == '/') {
 				'dataType': 'json',
 				'async': false,
 				'success': function (data) {
+					flag = 1;
 					if (data.status == 0) {
 						flag=1;
 						alert('此操作需要登陆！');
@@ -21,13 +23,11 @@ if (window.location.pathname == '/') {
 					}
 				},
 				'error': function () {
+					flag = 1;
 					alert('Failed!');
 				}
-			});
-			posted=1;
-			while(flag == 0 && posted == 1){};
-		});
-
-
+			})
+			while (flag == 0);
+		})
 	})();
 }
