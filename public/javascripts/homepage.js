@@ -5,7 +5,7 @@ if (window.location.pathname == '/') {
 			$.ajax({
 				'type': 'GET',
 				//TODO Debugin on Chrome requires the IP of host
-				'url': 'http://192.168.1.105:3000/users/isLoggedIn',
+				'url': '/users/isLoggedIn',
 				'dataType': 'json',
 				'async': false,
 				'success': function (data) {
@@ -18,6 +18,7 @@ if (window.location.pathname == '/') {
 						return;
 				},
 				'error': function () {
+					flag = 1;
 					alert('Failed!');
 				}
 			})
