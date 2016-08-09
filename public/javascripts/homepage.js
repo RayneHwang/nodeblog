@@ -1,6 +1,7 @@
 if (window.location.pathname == '/') {
 	(function () {
 		$('#addTopicBtn').click(function () {
+			var flag = 0;
 			$.ajax({
 				'type': 'GET',
 				//TODO Debugin on Chrome requires the IP of host
@@ -8,6 +9,7 @@ if (window.location.pathname == '/') {
 				'dataType': 'json',
 				'async': false,
 				'success': function (data) {
+					flag = 1;
 					if (data.status == 0) {
 						alert('此操作需要登陆！');
 						location.assign('/user/login');
@@ -19,6 +21,7 @@ if (window.location.pathname == '/') {
 					alert('Failed!');
 				}
 			})
+			while (flag == 0);
 		})
 	})();
 }
