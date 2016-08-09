@@ -7,7 +7,7 @@ div.list-group.post-list-group
 						span.timeago #{topic.update_at_ago()}
 			include topic
 			div(style="text-align:center")
-				a(href="/topic/add").btn.btn-add-topic Add Topic
+				a(href="/topic/add").btn.btn-add-topic#addTopicBtn Add Topic
 	else
 		div.text-center
 			p(style="text-align:center;font-family:consolas;color:#777676;") There is the no more topic.
