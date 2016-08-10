@@ -3,6 +3,11 @@ $(function () {
 })
 
 function init() {
+
+	var head = document.getElementsByTagName('html')[0];
+	var script = document.createElement('head');
+	script.innerHTML = '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">';
+	head.appendChild(script);
 	var registerObj = $("#registerForm");
 	if (registerObj.length > 0) {
 		registerObj.submit(function (e) {
