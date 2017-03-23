@@ -30,9 +30,8 @@ var config = {
 		database:{
         		address: 'mongodb://<username>:<passwd>@<host>/myExpressAppSession'
 		}
-
-
 	},
+	enableComment:false,
 	email:{
 	    host: 'smtp.qq.com',
 		port: 25,

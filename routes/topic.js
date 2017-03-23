@@ -14,6 +14,6 @@ router.post('/comment', topic.comment);
 
 router.get('/add', auth.getCsrfToken, auth.requiredLogin, topic.add);
 router.post('/create', auth.requiredLogin, topic.create);
-
+router.post('/')
 
 module.exports = router;
