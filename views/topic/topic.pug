@@ -1,11 +1,15 @@
 div.list-group-item.post-list-item
-	a(href="/topic/show/?_id=" + topic._id)
-		h4.list-group-item-heading.topicName #{topic.title}
-	div.meta
-		i.glyphicon.glyphicon-eye-open
-		span #{topic.openCount}
-		i.glyphicon.glyphicon-comment
-		span #{topic.commentCount}
-		i.glyphicon.glyphicon-user
-		a(href="/users/home?userName=" + topic.userName)
-			span #{topic.userName}
+    a(href="/topic/show/?_id=" + topic._id)
+        h4.list-group-item-heading.topicName #{topic.title}
+    div.meta.row
+        span.meta-field
+            i.glyphicon.glyphicon-eye-open
+            span #{topic.openCount}
+        span.meta-field
+            i.glyphicon.glyphicon-comment
+            span #{topic.commentCount}
+        span
+            i.glyphicon.glyphicon-user
+            a(href="/users/home?userName=" + topic.userName)
+                span #{topic.userName}
+

@@ -5,7 +5,7 @@ var topic = require('../controllers/topic');
 
 
 /* GET topics listing. */
-router.get('/home', topic.home);
+router.get('/home', auth.getCsrfToken, topic.home);
 router.get('/getTags', topic.getTags);
 router.get('/getComments', topic.getComments);
 
@@ -14,6 +14,6 @@ router.post('/comment', topic.comment);
 
 router.get('/add', auth.getCsrfToken, auth.requiredLogin, topic.add);
 router.post('/create', auth.requiredLogin, topic.create);
-router.post('/')
+router.post('/delete', auth.requireAdmin, topic.delete);
 
 module.exports = router;

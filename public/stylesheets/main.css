@@ -93,6 +93,11 @@ nav.navbar-white{
     margin-top: 0;
     margin-bottom: 5px;
 }
+
+.meta-field{
+    display: inline-block;
+    width: 12%;
+}
 .meta a {
     text-decoration: none;
 }

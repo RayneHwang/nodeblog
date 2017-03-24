@@ -1,13 +1,15 @@
 div.list-group.post-list-group
-	if topics.length > 0
-		each topic in topics
-			div.pull-right.last-comment-at
-				div.meta
-					a(href="/topic/show/?_id=" + topic._id)
-						span.timeago #{topic.update_at_ago()}
-			include topic
-	else
-		div.text-center
-			p(style="text-align:center;font-family:consolas;color:#777676;") There is the no more topic.
-	div.text-center
-		a(href="/topic/add").btn.btn-md.btn-add-topic#addTopicBtn Add Topic
+    if topics.length > 0
+        each topic in topics
+            div.pull-right.last-comment-at
+                div.meta
+                    a(href="/topic/show/?_id=" + topic._id)
+                        span.timeago #{topic.update_at_ago()}
+                    if(user && user._id == adminId)
+                        i.glyphicon.glyphicon-remove-sign(onclick='deleteTopic("' + topic._id + '")')
+            include topic
+    else
+        div.text-center
+            p(style="text-align:center;font-family:consolas;color:#777676;") There is the no more topic.
+    div.text-center
+        a(href="/topic/add").btn.btn-md.btn-add-topic#addTopicBtn Add Topic
