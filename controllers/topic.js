@@ -165,7 +165,11 @@ function add(req, res, next) {
       ep.after('getTags', tagsId.length, function (tagsName) {
         var topicTags = {
           topic: topic,
-          tagsName: tagsName
+          // for jQuery tagit plugin ,the tags to be rendered into page must be
+          // a string of tags separated by comma
+          tagsName: (function(tagsName){
+            return tagsName.join(',');
+          })(tagsName)
         }
         checkEvent.emit('checkTopic', topicTags);
       });

@@ -14,7 +14,7 @@ block content
 							input(name="title" value=topic.title).form-control.input-xlarge
 						else
 							input(name="title").form-control.input-xlarge
-						div#titleAlert.alert-required This field is required
+						div#titleAlert.alert-required 请输入标题
 				div.control-group
 					label.control-label Tags
 					div.controls
@@ -24,7 +24,7 @@ block content
 						else
 							input(name="tags" value="")#tags.hidden
 						span#hasTags.hidden #{hasTags}
-						div#tagsAlert.alert-required This field is required
+						div#tagsAlert.alert-required 请输入标签
 				div.control-group
 					label.control-label Content
 					div.controls
