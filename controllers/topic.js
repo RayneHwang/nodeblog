@@ -296,7 +296,7 @@ function home(req, res, next) {
         return next(error);
       }
       var resData = {
-        'title': 'Home Page',
+        'title': 'Lei\'s blog',
         'topics': topics,
         'pageInfo': pageInfo,
         'tags': tags,

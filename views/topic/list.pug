@@ -5,7 +5,7 @@ div.list-group.post-list-group
                 div.meta
                     a(href="/topic/show/?_id=" + topic._id)
                         span.timeago #{topic.update_at_ago()}
-                    if(user && user._id == adminId)
+                    if(user && (user._id == adminId||user.userName==topic.userName))
                         i.glyphicon.glyphicon-remove-sign(onclick='openDeleteConfirmDialog("' + topic._id + '")')
             include topic
     else

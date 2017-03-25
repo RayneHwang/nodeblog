@@ -4,19 +4,19 @@ nav.navbar.navbar-inverse
 			button(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse").navbar-toggle
 				span.nav-menu-name Menu
 			a(href="/" style=";").webName #{webName}
-		div.collapse.navbar-collapse.navbar-ex1-collapse
+		div.collapse.navbar-collapse.navbar-ex1-collapse(style="background-image: linear-gradient(rgb(50, 66, 74), rgb(46, 46, 46));")
 			ul.nav.navbar-nav.navbar-right
 				li
-					a(href="/").navbar-brand 主页
+					a(href="/" style="color:white").navbar-brand 主页
 				if session && session.user
 					li(style="display:inline;")
-						a(href="/users/home?userName=" + session.user.userName).navbar-brand #{session.user.userName}
+						a(href="/users/home?userName=" + session.user.userName style="color:white").navbar-brand #{session.user.userName}
 					li(style="display:inline;")
-						a(href="/users/setting" style="display:inline;").navbar-brand 设置
+						a(href="/users/setting" style="display:inline;color:white;").navbar-brand 设置
 					li(style="display:inline;")
-						a(href="/users/logout" style="display:inline;").navbar-brand 注销
+						a(href="/users/logout" style="display:inline;color:white;").navbar-brand 注销
 				else
-					li(style="display:inline;")
+					li(style="display:inline;color:white;")
 						a(href="/users/login").navbar-brand 登录
-					li(style="display:inline;")
+					li(style="display:inline;color:white;")
 						a(href="/users/register").navbar-brand 注册

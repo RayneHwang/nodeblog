@@ -31,3 +31,8 @@ exports.deleteById = function (topicId, callback) {
   var qeury = Topic.find({_id: topicId});
   qeury.remove(callback);
 }
+
+
+exports.getUserNameByTopicId = function (topicId, callback) {
+  Topic.find({_id: topicId}, callback);
+}

@@ -14,6 +14,6 @@ router.post('/comment', topic.comment);
 
 router.get('/add', auth.getCsrfToken, auth.requiredLogin, topic.add);
 router.post('/create', auth.requiredLogin, topic.create);
-router.post('/delete', auth.requireAdmin, topic.delete);
+router.post('/delete', auth.requireTopicDeletePermission, topic.delete);
 
 module.exports = router;

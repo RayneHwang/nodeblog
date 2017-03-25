@@ -1,12 +1,15 @@
 var config = require("../config");
 var helps = require("../common/helps");
+var proxy = require('../proxy');
 
 exports.saveUserSession = saveUserSession;
 exports.removeUserSession = removeUserSession;
 exports.getUserBySession = getUserBySession;
 exports.requiredLogin = requiredLogin;
 exports.getCsrfToken = getCsrfToken;
-exports.requireAdmin=requireAdmin;
+exports.requireAdmin = requireAdmin;
+exports.requireTopicDeletePermission = requireTopicDeletePermission;
+
 function getUserBySession(req, callback) {
   if (req.session && req.session.user) {
     return callback(req.session.user);
@@ -36,7 +39,26 @@ function requireAdmin(req, res, next) {
   } else {
     next(new Error("Require admin permission!"));
   }
+}
+
+
+/** Check if requester has the permission to delete topic
+ *  @param req: Incoming message, must contain the id of topic to delete(topicId)
+ */
+function requireTopicDeletePermission(req, res, next) {
   
+  proxy.Topic.getUserNameByTopicId(req.body.topicId, function (err, result) {
+    if (result.length == 0) {
+      return res.json(({msg: "No such topic!", status: 1}))
+    }
+    var topicUserName = result[0]._doc.userName;
+    if (req.session && (req.session.user._id == config.adminId || req.session.user.userName == topicUserName )) {
+      next()
+    }
+    else {
+      return res.json({msg: "Permission denied!", status: 1});
+    }
+  });
 }
 
 function saveUserSession(req, user) {
