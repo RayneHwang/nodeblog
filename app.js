@@ -29,6 +29,7 @@ app.set('view engine', 'pug');
 app.use('favicon', express.static('public/favicon.ico'));
 app.use(favicon('public/favicon.ico'));
 app.use(logger('dev'));
+app.use(bodyParser({limit:'2mb'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
