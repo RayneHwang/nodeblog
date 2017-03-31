@@ -9,6 +9,7 @@ var Topic = proxy.Topic;
 var Comment = proxy.Comment;
 var auth = require("../middlewares/auth");
 var mongoose = require('mongoose');
+var sanitizer = require('sanitizer');
 
 exports.create = create;
 exports.home = home;
@@ -167,7 +168,7 @@ function add(req, res, next) {
           topic: topic,
           // for jQuery tagit plugin ,the tags to be rendered into page must be
           // a string of tags separated by comma
-          tagsName: (function(tagsName){
+          tagsName: (function (tagsName) {
             return tagsName.join(',');
           })(tagsName)
         }
@@ -306,7 +307,7 @@ function home(req, res, next) {
         'tags': tags,
         'tagId': tagId,
         'user': user,
-        'adminId':config.adminId
+        'adminId': config.adminId
         
       };
       res.render('topic/home', resData);
@@ -341,9 +342,12 @@ function create(req, res, next) {
     return;
   }
   
-  var content = marked(Markdown);
   
+  var content = marked(Markdown);
+  // use sanitizer to remove script tags
+  content = sanitizer.sanitize(content);
   var showNameArray = tags.split(",");
+  
   var tagNameArray = [];
   var tagArray = [];
   showNameArray.forEach(function (showName) {
@@ -448,7 +452,7 @@ function saveTopic(_id, newTopic, req, callback) {
 
 function deleteTopic(req, res, next) {
   Topic.deleteById(req.body.topicId, function (error) {
-    res.json({status:200});
+    res.json({status: 200});
   });
 }
 
