@@ -9,7 +9,7 @@ var Topic = proxy.Topic;
 var Comment = proxy.Comment;
 var auth = require("../middlewares/auth");
 var mongoose = require('mongoose');
-var sanitizer = require('sanitizer');
+var htmlSanitizer = require('sanitize-html');
 
 exports.create = create;
 exports.home = home;
@@ -344,8 +344,12 @@ function create(req, res, next) {
   
   
   var content = marked(Markdown);
+  
   // use sanitizer to remove script tags
-  content = sanitizer.sanitize(content);
+  cleanCeontent = htmlSanitizer(content, {
+    allowedTags: htmlSanitizer.defaults.allowedTags.concat(['img'])
+  });
+  
   var showNameArray = tags.split(",");
   
   var tagNameArray = [];
@@ -367,7 +371,7 @@ function create(req, res, next) {
       title: title,
       tagsId: tagsId,
       Markdown: Markdown,
-      content: content,
+      content: cleanCeontent,
       update_at: new Date()
     };
     

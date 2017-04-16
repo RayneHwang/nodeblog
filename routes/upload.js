@@ -8,6 +8,4 @@ var upload = require('../controllers/upload');
 /* GET upload listing. */
 
 router.post('/image',auth.requiredLogin,upload.image);
-
-
 module.exports = router;

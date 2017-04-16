@@ -29,13 +29,13 @@ app.set('view engine', 'pug');
 app.use('favicon', express.static('public/favicon.ico'));
 app.use(favicon('public/favicon.ico'));
 app.use(logger('dev'));
-app.use(bodyParser({limit:'2mb'}));
+app.use(bodyParser({limit: '2mb'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static('public'));
 
-app.use('/upload', express.static('/upload'));
+
 global.appRoot = path.resolve(__dirname);
 
 const session = require('express-session');
@@ -72,6 +72,7 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/topic', topic);
+app.use('/upload', express.static(path.join(__dirname, 'upload')));
 app.use('/upload', upload);
 
 // catch 404 and forward to error handler
