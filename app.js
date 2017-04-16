@@ -72,6 +72,8 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/topic', topic);
+
+//mount upload interface and download uploaded file interface on the same path
 app.use('/upload', express.static(path.join(__dirname, 'upload')));
 app.use('/upload', upload);
 
