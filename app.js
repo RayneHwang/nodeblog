@@ -62,6 +62,7 @@ app.use(function (err, req, res, next) {
   helps.resJsonError(req, res, name, notice);
 })
 
+
 //config the web page info
 app.use(function (req, res, next) {
   res.locals.session = req.session;
